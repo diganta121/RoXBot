@@ -14,22 +14,25 @@ from screen.functions import clear, getInfo
 from api.user import equipItem, leaveGame, resetChar
 from api.movement import Move, RandomMove, MoveToPos, resetPosition
 
+keywords = ("mvf","mvb","mvr","mvl","cr","cl","lu","ld","lr","ll")
+
 # Template functions
 def _clear():
 
     """Cross-platform method of clearing the terminal"""
-
     if name == "nt":
-
         system("cls")
-
     elif name == "posix":
-
         system("clear")
-
     else:
-
         raise SystemError("Unsupported operating system %" % name)
+def _stop():
+    Chat("bye, stopping..")
+    resetChar()
+    _clear()
+    pygame.quit()
+    exit()
+
 
 # Initialization
 HANDLER = WindowManager()
@@ -83,43 +86,20 @@ while True:
 
         # Exit script
         if event.type == pygame.QUIT:
-
-            Chat("Script closed; stopping..")
-
-            resetChar()
-
-            _clear()
-
-            pygame.quit()
-
-            exit()
+            _stop()
 
         # Move to position
         if event.type == pygame.MOUSEBUTTONUP:
 
             MoveToPos((X, Y))
-
-            Chat("Moved to designated position.")
+            Chat("position re")
 
         # Keystrokes
         if event.type == pygame.KEYDOWN:
-
-            # Reset character
-            if event.unicode.upper() == "R":
-
-                resetPosition()
-
-                resetChar()
-
-                sleep(4.5)
-
-                Chat("Reset request complete.")
-
             # Leave game
             if event.unicode.upper() == "L":
-
                 resetPosition()
-
                 leaveGame()
+                _stop()
 
     pygame.display.update()

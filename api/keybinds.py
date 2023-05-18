@@ -58,6 +58,7 @@ ALPHABET = {
     ",": 0xBC,
     ".": 0xBE,
     ";": 0xBA,
+    "`":0x60,
     "[ENTER]": 0x0D,
     "[ESC]": 0x1B
 }
@@ -171,6 +172,8 @@ def ReleaseKey(hexKeyCode):
 
     user32.SendInput(1, ctypes.byref(x), ctypes.sizeof(x))
 
+
+
 def Type(text):
 
     """Types each individual character in a string"""
@@ -213,7 +216,7 @@ def Type(text):
 
         c += 1
 
-def Hotkey(key, seconds = 0):
+def Hotkey(key, seconds = 0.01):
 
     HANDLER.focusROBLOX()
 

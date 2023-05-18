@@ -1,0 +1,32 @@
+{
+    "key": {
+        "note": "this is only for human reference, to change any keyWord u must change in main.py not here",
+        "mvf_": "move_fwd_<time>",
+        "mvb_": "move_bwd_<time>",
+        "mvr_": "move_right_<time>",
+        "mvl_": "move_left_<time>",
+        "cr_": "right_click_<time>",
+        "cl_": "left_click_<time>",
+        "lu": "look_up_",
+        "ld": "look_down_<time>",
+        "lr": "look_right_<time>",
+        "ll": "look_left_<time>",
+        "resetc":"reset_charecter"
+    },
+    "bot_src_spawn": [
+        "mvf_1",
+        "cr",
+        "mvf_1"
+    ],
+    "bot_src_popup": [
+        "mvf_1",
+        "cr",
+        "mvf_1"
+    ],
+    "bot_src_mine_begin": [
+        "mvf_1",
+        "cr",
+        "mvf_1"
+    ]
+
+}
